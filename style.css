@@ -11,6 +11,8 @@
 }
 
 body {
+    /* background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed; */
+    
     background: url(image.jpg) no-repeat center center fixed;
     background-size: cover;
     animation: gradient 15s ease infinite;
@@ -99,7 +101,7 @@ background: rgba(0, 0, 0, 0.9);
 width: 100%;
 text-align: center;
 padding: 10px 0;
-
+height: 35%;
 }
 
 .navlist.active {
@@ -107,7 +109,9 @@ display: table-column; /* Show the navlist when active */
 text-align: left;
 background: none;
 list-style: decimal;
-
+background-color: black;
+background: url(image.jpg) no-repeat center center fixed;
+background-size: cover;
 }
 
 .navlist a {
@@ -115,7 +119,11 @@ margin: 10px 0;
 }
 }
 
+.navlist li{
+    margin-top: 5px;
+    
 
+}
 
 .container {
     width: 90%;
@@ -660,9 +668,10 @@ canvas {
         padding-right: 0%;
         padding-top: 0px;
         padding-bottom: 0px;
-        background-color: rgb(52, 51, 51);
+        /* background-color: rgb(52, 51, 51); */
         border-radius: 3%;
-        border: 2px solid white;
+        /* border: 2px solid white; */
+     
     }
 }
 
