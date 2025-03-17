@@ -1,0 +1,809 @@
+ /* General Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+body {
+    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed;
+    background-size: cover;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed;
+    background-size: cover;
+    padding: 10px 15%;
+    border-bottom: 1px solid transparent;
+    transition: all .45s ease;
+}
+
+.logo {
+    color: #feffb6;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+span {
+    color: #3498db;
+}
+
+.navlist {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navlist a {
+    color: #bcbcbc;
+    font-size: clamp(14px, 2vw, 17px); /* Responsive font size */
+    font-weight: 500;
+    margin: 0 15px;
+    transition: all .45s ease;
+    white-space: nowrap; /* Ensure text stays in one line */
+}
+
+.navlist a:hover {
+    color: aqua;
+}
+
+.navlist a.active {
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+header {
+padding: 10px 5%;
+color: #fff;
+}
+
+#menu-icon {
+display: block; /* Show the hamburger menu */
+cursor: pointer; /* Add pointer cursor for better UX */
+}
+
+.navlist {
+display: none; /* Hide the navlist by default on small screens */
+flex-direction: column;
+position:absolute;  
+top: 70px; /* Adjust based on header height */
+right: 0;
+background: rgba(0, 0, 0, 0.9);
+width: 100%;
+text-align: center;
+padding: 10px 0;
+
+}
+
+.navlist.active {
+display: table-column; /* Show the navlist when active */
+text-align: left;
+background: none;
+list-style: decimal;
+
+}
+
+.navlist a {
+margin: 10px 0;
+}
+}
+
+
+
+.container {
+    width: 90%;
+    max-width: 400px;
+     /* background-color: rgba(255, 255, 255, 0.9);    */
+     background: url('https://img.freepik.com/free-vector/abstract-banner-with-low-poly-plexus-network-communications-design_1048-12914.jpg?semt=ais_hybrid') no-repeat center center fixed;
+    background-size: cover;
+     /* background-color: rgba(255, 255, 255, 0.9);     */
+    background: blur(0px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 5px solid whitesmoke;
+    box-shadow: 4px 4px 4px rgb(253, 248, 182);
+    
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Alarm Clock Styles */
+.clock {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    border: 8px solid #333;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.numbers div {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.twelve { top: 10px; left: 50%; transform: translateX(-50%); }
+.three { top: 50%; right: 10px; transform: translateY(-50%); }
+.six { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.nine { left: 10px; top: 50%; transform: translateY(-50%); }
+
+.arrows {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrows::before {
+    content: "";
+    background-color: #333;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.arrows div {
+    background: #333;
+    width: 5px;
+    position: absolute;
+    height: 50px;
+    transform-origin: bottom center;
+    bottom: 50%;
+    z-index: 3;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.arrows .hours { height: 30px; transform: rotate(30deg); }
+.arrows .minutes { height: 50px; transform: rotate(90deg); }
+.arrows .seconds { height: 60px; transform: rotate(250deg); background-color: #e74c3c; }
+
+.time-format {
+    margin-bottom: 20px;
+}
+
+.time-format label {
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.time-format select {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.alarm-times {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alarm-times .column {
+    border-radius: 10px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    width: calc(100% / 3 - 5px);
+}
+
+.column select {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.alarm-list {
+    width: 100%;
+    margin-top: 20px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.alarm-list div {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #333;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.alarm-list div span {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.alarm-list div button {
+    width: auto;
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    font-size: 12px;
+    margin: 2px;
+}
+
+.alarm-list div button:hover {
+    background-color: #c0392b;
+}
+
+.snooze-btn {
+    display: none;
+    margin-top: 10px;
+    background-color: #e74c3c;
+}
+
+.snooze-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Stopwatch Styles */
+.stopwatch-container {
+    text-align: center;
+}
+
+.diamond-circle {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border: 8px solid #333;
+    transform: rotate(45deg);
+    animation: rotate 60s linear infinite;
+    border-radius: 20px;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.stopwatch {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#display {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+#stopBtn {
+    background-color: #dc3545;
+}
+
+#stopBtn:hover {
+    background-color: #c82333;
+}
+
+#refreshBtn {
+    background-color: #28a745;
+}
+
+#refreshBtn:hover {
+    background-color: #218838;
+}
+
+/* Countdown Timer Styles */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.countdown-timer input {
+    width: 80px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.countdown-timer input:focus {
+    border-color: #e74c3c;
+}
+
+.countdown-display {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+#end-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 20px;
+    display: none;
+}
+
+.progress-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.5s, stroke 0.5s;
+    stroke-width: 8;
+    stroke-dasharray: 565.48;
+    stroke-dashoffset: 565.48;
+    fill: transparent;
+}
+
+/* Pomodoro Timer Styles */
+.pomodoro-container {
+    text-align: center;
+}
+
+.pomodoro-display {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.pomodoro-buttons button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.pomodoro-buttons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* World Clock Styles */
+.world-clock-container {
+    text-align: center;
+}
+
+.clock-box {
+    margin-bottom: 20px;
+}
+
+canvas {
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0 0 20px orange;
+}
+
+.timezone {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+.world-time {
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    margin-left: 12%;
+}
+
+.city {
+    background: #222;
+    padding: 15px;
+    color: white;
+    margin: 10px auto;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.city-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.time {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-city-btn {
+    background-color: orange;
+    border: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    
+}
+
+.close-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+/* Modal for City Selector */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#searchCity {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#cityList {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#cityList li {
+    list-style: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#cityList li:hover {
+    background-color: orange;
+}
+
+/* Footer Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(66, 64, 64, 0.9);
+    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed;
+    background-size: cover;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-icons i {
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-icons i:hover {
+    color: #ff0000;
+}
+
+
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+    header {
+        padding: 10px 5%;
+        color: #fff;
+        background-color: black;
+        text-align: left;
+        
+    }
+
+    #menu-icon {
+        display: block; /* Show the hamburger menu */
+        cursor: pointer; /* Add pointer cursor for better UX */
+    }
+
+    .navlist {
+        display: none; /* Hide the navlist by default on small screens */
+        flex-direction:calc();
+        position:fixed; 
+        
+        bottom: 70px; /* Adjust based on header height */
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+      
+    }
+
+    .navlist.active {
+        display: flex; /* Show the navlist when active */
+        text-align: left;
+    }
+
+    .navlist a {
+        
+        margin: 0px;
+        color: white;
+        padding-left: 0%;
+        padding-right: 0%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        background-color: rgb(52, 51, 51);
+        border-radius: 3%;
+        border: 2px solid white;
+    }
+}
+
+.footer-part{
+        background-color: rgb(11, 11, 11);
+        height: 500px;
+        width: 103.6%;
+        margin-top: 0px;
+
+    }
+  h4{
+      color:white;
+      font-size: 400%;
+      /* margin-left: 42%; */
+      margin-top: 40px;
+      padding-top: 30px;
+      text-align: center;
+  }
+  h2{
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      /* margin-left: 25%; */
+      margin-top: 0px;
+      text-align: center;
+  }
+  .ftr{
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 32%;
+      margin-right: 10%;
+      margin-top: 20px;
+      list-style-type: none;
+      transition: all 5s;
+    transition: color 0.5s ease, transform 0.5s ease;
+animation-direction: alternate;
+animation: fadeIn 2s ease-in-out;
+
+  }
+  .line{
+    align-items: center;
+  }
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 6;
+        transform: translateY(0);
+    }
+}
+   .ftr li{
+        margin-right: 20px;
+        margin-top: 20px;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        justify-content: space-evenly;
+        width: 200px;
+    }
+    a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    h6{
+        color: rgb(255, 255, 255);
+        font-size: 15px;
+        margin-top: 6px;
+        margin-right: 30px;
+    }
+    i{
+        margin-right: 10px;
+    }
+    .line{
+        width: 50%;
+        height: 1px;
+        background-color: rgb(255, 255, 255);
+        margin-top: 50px;
+    }
+    .footer-bottom {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: aliceblue;
+margin-top: 20px;
+height: 100px; /* Adjust the height as needed */
+}
+
+.logo {
+margin: 0;
+}
+
+.copyright {
+font-size: 20px;
+margin-top: 10px; /* Adjust the margin as needed */
+text-align: center;
+}
+.scroll{
+color: rgb(237, 10, 10);
+font-size: 17px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+.footer-part {
+    padding: 10px;
+}
+
+h4, h2 {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.ftr{
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.ftr li {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.line {
+    width: 90%;
+}
+
+.footer-bottom {
+    height: auto;
+    margin-top: 10px;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+.scroll {
+    font-size: 12px;
+}
+}
+.ftr{
+padding-bottom:20px;
+}

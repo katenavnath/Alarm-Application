@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock, Stopwatch, Countdown Timer, Pomodoro Timer, and World Clock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Alarm....</a>
+        <div class="bx bx-menu" id="menu-icon" onclick="toggleNav()">&#9776;</div>
+        <ul class="navlist" id="navlist">
+            <li><a href="#">Clock</a></li>
+            <li><a href="#set-alarm-page">Set Alarm</a></li>
+            <li><a href="#stopwatch-page">Stopwatch</a></li>
+            <li><a href="#countdown-page">Countdown Timer</a></li>
+            <li><a href="#pomodoro-page">Pomodoro Timer</a></li>
+            <li><a href="#world-clock-page">World Clock</a></li>
+        </ul>
+    </header>
+
+    <!-- Alarm Clock Section -->
+    <div class="container" id="clock-page">
+        <div class="clock">
+            <div class="numbers">
+                <div class="twelve">12</div>
+                <div class="three">3</div>
+                <div class="six">6</div>
+                <div class="nine">9</div>
+            </div>
+            <div class="arrows">
+                <div class="hours"></div>
+                <div class="minutes"></div>
+                <div class="seconds"></div>
+            </div>
+        </div>
+        <div class="time-format">
+            <label for="time-format">Time Format:</label>
+            <select id="time-format">
+                <option value="12">12-Hour</option>
+                <option value="24">24-Hour</option>
+            </select>
+        </div>
+        <div class="time">
+            <h1 id="time-display">1:10:30 <span>AM</span></h1>
+        </div>
+    </div>
+
+    <!-- Set Alarm Section -->
+    <div class="container" id="set-alarm-page">
+        <h1>Set Alarm</h1>
+        <div class="alarm-times">
+            <div class="column">
+                <select id="hour-select">
+                    <option value="hour" selected disabled hidden>Hour</option>
+                </select>
+            </div>
+            <div class="column">
+                <select id="minute-select">
+                    <option value="minute" selected disabled hidden>Minute</option>
+                </select>
+            </div>
+            <div class="column">
+                <select id="ampm-select">
+                    <option value="AM/PM" selected disabled hidden>AM/PM</option>
+                </select>
+            </div>
+        </div>
+        <button id="add-alarm-btn">Add Alarm</button>
+        <button id="back-btn">Back</button>
+        <!-- Alarm List on Set Alarm Page -->
+        <div class="alarm-list" id="set-alarm-list"></div>
+    </div>
+    
+
+    <!-- Stopwatch Section -->
+    <div class="container" id="stopwatch-page">
+        <div class="stopwatch-container">
+            <h1>Stopwatch</h1>
+            <div class="diamond-circle"></div>
+            <div class="stopwatch">
+                <div id="display">00:00:00:000</div>
+                <div class="buttons">
+                    <button id="startBtn">Start</button>
+                    <button id="stopBtn">Stop</button>
+                    <button id="refreshBtn">Refresh</button>
+                </div>
+            </div>
+            <button id="back-to-clock-btn">Back to Clock</button>
+        </div>
+    </div>
+
+    <!-- Countdown Timer Section -->
+    <div class="container" id="countdown-page">
+        <h1>Countdown Timer</h1>
+        <!-- Circular Progress Bar -->
+        <div class="progress-ring">
+            <svg viewBox="0 0 200 200">
+                <circle class="progress-ring__circle" r="90" cx="100" cy="100" />
+            </svg>
+        </div>
+        <!-- Countdown Timer Section -->
+        <div class="countdown-timer">
+            <input type="number" id="minutes" placeholder="Minutes" min="0">
+            <span>:</span>
+            <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+        </div>
+        <div class="countdown-display" id="countdown-display">00:00</div>
+        <button id="start-countdown">Start Countdown</button>
+        <div id="end-message">Time's up!</div>
+        <button id="back-to-clock-btn-2">Back to Clock</button>
+    </div>
+
+    <!-- Pomodoro Timer Section -->
+    <div class="container" id="pomodoro-page">
+        <h1>Pomodoro Timer</h1>
+        <div class="pomodoro-container">
+            <input type="number" id="pomodoro-time" placeholder="Set Time (Minutes)" min="1" value="25">
+            <div class="pomodoro-display" id="pomodoro-display">25:00</div>
+            <div class="pomodoro-buttons">
+                <button id="start-pomodoro">Start</button>
+                <button id="stop-pomodoro" disabled>Stop</button>
+                <button id="reset-pomodoro" disabled>Reset</button>
+            </div>
+        </div>
+        <button id="back-to-clock-btn-3">Back to Clock</button>
+    </div>
+
+    <!-- World Clock Section -->
+    <div class="container" id="world-clock-page">
+        <h1>World Clock</h1>
+        <div class="world-clock-container">
+            <!-- Analog Clock -->
+            <div class="clock-box">
+                <canvas id="analogClock"></canvas>
+                <p class="timezone">India Standard Time | <span id="dateDisplay"></span></p>
+            </div>
+
+            <!-- World Clock List -->
+            <div class="world-time">
+                <div id="worldClockList">
+                    <!-- Dynamic cities will be added here -->
+                </div>
+                <button class="add-city-btn" onclick="openCitySelector()">+</button>
+            </div>
+        </div>
+        <button id="back-to-clock-btn-4">Back to Clock</button>
+    </div>
+
+    <!-- City Selection Modal -->
+    <div id="citySelector" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCitySelector()">✖</span>
+            <input type="text" id="searchCity" placeholder="Search City..." onkeyup="filterCities()">
+            <ul id="cityList"></ul>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="footer-icons">
+            <i class="fas fa-clock" id="footer-alarm"></i>
+            <i class="fas fa-stopwatch" id="footer-stopwatch"></i>
+            <i class="fas fa-hourglass-half" id="footer-pomodoro"></i>
+            <i class="fas fa-bell" id="footer-set-alarm"></i>
+            <i class="fas fa-hourglass-start" id="footer-countdown"></i>
+            <i class="fas fa-globe" id="footer-world-clock"></i>
+        </div>
+    </div>
+
+    <div class="footer-part">
+        <h4>Social</h4>
+        <h2>Follow Us for the latest updates</h2>
+        <ul class="ftr">
+            <li><a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+            <li> <a href ="https://github.com/"><i class="fa-brands fa-github"></i></i>Github</a></li>  
+
+        </ul>
+        <hr class="">
+        <div class="footer-bottom">
+           
+                <h2 class="logo">Alarm Application </h2>
+                <div class="copyright">
+                    © 2025 JOBS | Design By Team A1
+              
+            </div>
+        </div>
+
+        <div class="scroll">
+            <marquee scrollamount="10" direction="left" >
+                Copyright content are Harmful | © All Rights Reserved</marquee>
+
+        </div>
+    </div>
+   
+
+    <script src="script.js">
+       
+    </script>
+</body>
+</html>
