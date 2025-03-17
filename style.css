@@ -36,7 +36,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed;
+    background: url(image.jpg) no-repeat center center fixed;
     background-size: cover;
     padding: 10px 15%;
     border-bottom: 1px solid transparent;
@@ -593,7 +593,7 @@ canvas {
     left: 0;
     width: 100%;
     background-color: rgba(66, 64, 64, 0.9);
-    background: url('https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?t=st=1742115004~exp=1742118604~hmac=06e10e1295bc4fa3e5b26698b70bd2294a910ee58fe98094208f24d407f58b93&w=1380') no-repeat center center fixed;
+    background: url(image.jpg) no-repeat center center fixed;
     background-size: cover;
     padding: 10px 0;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
